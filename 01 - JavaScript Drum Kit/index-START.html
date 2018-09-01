@@ -58,7 +58,31 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+	//función de ejecución del sonido
+	function playSound(e) {
+		const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+		const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+		
+		if(!audio) return; 
+		audio.currentTime = 0; // hará que vuelva a sonar cada que se aprete una tecla tecla
+		audio.play();		
+		key.classList.add('playing'); // esto es como el addClass('clase') de Jquery pero en VanillaJs
+	};
 
+	// función que remueve la transición de la key apretada
+	function removeTransition(e) {
+		if (e.propertyName !== 'transform') return; // skipea si no es una transformacion
+		this.classList.remove('playing');  // this es la key en este caso 
+	};
+
+	
+	const keys = document.querySelectorAll('.key'); // atención acá, por un punto puede no entrar en removetransition
+	keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
+	window.addEventListener('keydown',playSound);
+
+
+	
 </script>
 
 
