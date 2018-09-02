@@ -75,10 +75,10 @@
 		this.classList.remove('playing');  // this es la key en este caso 
 	};
 
-	
+
 	const keys = document.querySelectorAll('.key'); // atención acá, por un punto puede no entrar en removetransition
 	keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-
+	
 	window.addEventListener('keydown',playSound);
 
 
