@@ -5,7 +5,7 @@
   <title>Follow Along Nav</title>
 </head>
 <body>
-  <h2>Cool</h2>
+  <h1 class="centerh2">Sexy dropdown </h1>
   <nav class="top">
     <div class="dropdownBackground">
       <span class="arrow"></span>
@@ -86,10 +86,11 @@
     margin: 0;
     min-height: 100vh;
     background:
-      linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
-      linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
-      linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
-      linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+      linear-gradient(60deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
+      linear-gradient(110deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%),
+      linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%);
+
+     
   }
 
   h2 {
@@ -136,18 +137,16 @@
     border-radius:2px;
     transition: all 0.5s;
     transform: translateY(100px);
-    will-change: opacity;
+    will-change: transform;
     display: none;
   }
-
-  .trigger-enter .dropdown {
-    display: block;
+  .trigger-enter .dropdown{
+    display:block;
   }
 
   .trigger-enter-active .dropdown {
     opacity: 1;
   }
-
 
 
   .dropdownBackground {
@@ -211,9 +210,12 @@
     padding:10px;
     color:white;
     margin-bottom: 10px;
+
   }
-
-
+  .centerh2{
+    text-align: center;
+  }
+  
   /* Matches Twitter, TWITTER, twitter, tWitter, TWiTTeR... */
   .button[href*=twitter] { background: #019FE9; }
   .button[href*=facebook] { background: #3B5998; }
@@ -221,6 +223,45 @@
 </style>
 
 <script>
+  const triggers = document.querySelectorAll('.cool > li');
+  const background  = document.querySelector('.dropdownBackground');
+  const nav  = document.querySelector('.top');
+
+  function handleEnter(){
+    // console.log('Enter!!');
+    this.classList.add('trigger-enter');
+    setTimeout(() => this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active'), 150);
+    background.classList.add('open');
+    
+    const dropdown = this.querySelector('.dropdown');
+    // console.log(dropdown);
+    const dropdownCoords = dropdown.getBoundingClientRect();
+    // console.log(dropdownCoords);
+    const navCoords = nav.getBoundingClientRect();
+    
+    const coords = {
+      height: dropdownCoords.height,
+      width: dropdownCoords.width,
+      top: dropdownCoords.top - navCoords.top,
+      left: dropdownCoords.left - navCoords.left
+    };
+    
+    background.style.setProperty('width', `${coords.width}px`);
+    background.style.setProperty('height', `${coords.height}px`);
+    background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
+  }
+
+
+  function handleLeave(){
+    //console.log('Leaveee!!');
+    this.classList.remove('trigger-enter', 'trigger-enter-active');
+    background.classList.remove('open');
+
+
+  }
+
+  triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter));
+  triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave));
 </script>
 
 </body>
