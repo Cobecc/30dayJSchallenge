@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  background: url('https://source.unsplash.com/NFs6dRTBgaM/2000x2000') fixed;
+  background: url('https://images.pexels.com/photos/286588/pexels-photo-286588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') fixed;
   background-size: cover;
 }
 
@@ -56,15 +56,15 @@ body {
   box-shadow: inset 0 0 0 10px rgba(0,0,0,0.15);
 }
 
-.item:nth-child(9n+1) { background: dodgerblue;}
-.item:nth-child(9n+2) { background: goldenrod;}
-.item:nth-child(9n+3) { background: paleturquoise;}
-.item:nth-child(9n+4) { background: gold;}
-.item:nth-child(9n+5) { background: cadetblue;}
-.item:nth-child(9n+6) { background: tomato;}
-.item:nth-child(9n+7) { background: lightcoral;}
-.item:nth-child(9n+8) { background: darkslateblue;}
-.item:nth-child(9n+9) { background: rebeccapurple;}
+.item:nth-child(9n+1) { background: url('https://images.pexels.com/photos/1446713/pexels-photo-1446713.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');}
+.item:nth-child(9n+2) { background: url('https://images.pexels.com/photos/1438996/pexels-photo-1438996.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');}
+.item:nth-child(9n+3) { background: url('https://images.pexels.com/photos/1090972/pexels-photo-1090972.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');}
+.item:nth-child(9n+4) { background: url('https://images.pexels.com/photos/1438831/pexels-photo-1438831.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');}
+.item:nth-child(9n+5) { background: url('https://images.pexels.com/photos/1253718/pexels-photo-1253718.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');}
+.item:nth-child(9n+6) { background: url('https://images.pexels.com/photos/808510/pexels-photo-808510.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');}
+.item:nth-child(9n+7) { background: url('https://images.pexels.com/photos/640947/pexels-photo-640947.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');}
+.item:nth-child(9n+8) { background: url('https://images.pexels.com/photos/192136/pexels-photo-192136.jpeg?auto=compress&cs=tinysrgb&h=650&w=940');}
+.item:nth-child(9n+9) { background: url('https://images.pexels.com/photos/1447235/pexels-photo-1447235.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') center;}
 
 .item:nth-child(even) { transform: scaleX(1.31) rotateY(40deg); }
 .item:nth-child(odd) { transform: scaleX(1.31) rotateY(-40deg); }
